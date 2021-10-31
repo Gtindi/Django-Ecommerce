@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+<head>
+<meta charset="utf-8">
+<title>Mangaza Homes</title>
+</head>
+{% block content %}
+<center>  <h1> {{title}}</h1> </center>
+        <h2>Congratulations, your project is ready to GO!</h2>
+home_page
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <img src="{% static '/img/morty.jpg' %}" style="height: 250px;" class="img-fluid" /><br/>
+                   <!-- <img src="/static/img/morty.jpg" class="img-fluid" /> -->
+                    {{content}}
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+
+        <center>
+           <h1><b> {{title}} </b></h1>
+            <h2>Congratulations, your project is ready to GO!</h2>
+        </center>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    {{content}}
+                    <div class="col-sm 6 col-12">
+                        <form method="POST">    {% csrf_token %}
+                        <!--{{form}}-->
+
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                            {% if request.user.is_authenticated %}
+                            <div class="row">
+                                <div class="col">
+                                    <h1>Premium</h1>
+                                    log: {{premium}}
+                                </div>
+                            </div>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
